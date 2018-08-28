@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chapter 8: Extra Markup</title>
+
+		<meta http-equiv="author" content="Shazim Chaudhary">
+		<meta name="description" content="Chapter 8 of the HTML and CSS book.">
+		<meta name="keywords" content="HTML, CSS, Book, Web development">
+		<meta name="robots" content="nofollow">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="expires" content="Fri, 04 June 2018 23:59:59 GMT">
+	</head>
+
+	<body>
+		<h1>Chapter 8: Extra Markup</h1>
+		
+		<h2>Doctypes</h2>
+
+		<p>
+			- Tells the browser which version of HTML the page is using (although browsers usually display the page even if this is not included).
+			<br>
+			-In CSS, the use of DOCTYPE can also help the browser to render a page correctly.
+			<br>
+			- Refer to page 181 for the popular DOCTYPES, for HTML5 we use !DOCTYPE html like seen above.
+		</p>
+
+		<h2>Comments in HTML</h2>
+
+		<p>
+			Comments are utilized in HTML code using "!-- ... --" inside the angle brackets. It's always a good idea to add comments to your code so you and others can understand and follow along. Also comments can be viewed by viewing the source code on the web browser too. So users can view your web page comments.
+		</p> <!-- Like this big boy! -->
+		
+		<h2>ID Attribute</h2>
+
+		<p>
+			- Every HTML element can carry the id attribute. It is used to uniquely identify that element from other elements on the page. Its value should start with a letter or an underscore (not a number or any other character). It is IMPORTANT that no two elements on the same page have the same value for their id attributes other wise the value is no longer unique.<br>
+			<br>
+			- Giving an element a unique identity allows you to style it differently than any other instance of the same element o the page. Example:
+		</p>
+
+		<p>
+			Water and air. So very commonplace are these substances. they hardly attract attention - and yet they vouchsafe our very existence.
+		</p>
+
+		<p id="pullquote"> Every time I view the sea I feel
+ 			a calming sense of security, as if visiting my
+ 			ancestral home; I embark on a voyage of seeing.
+		</p>
+
+		<h2>Class Attribute</h2>
+
+		<p>
+			- Every HTML element can also carry a class attribute. Sometimes, rather than uniquely identifying one element within a document, you will want a way to identify several elements as being different from the other elements on the page.
+			<br>
+			- With the class attribute, you can seperate some paragraphs that might contain some sensitive or important information from the rest of the page elements or you can classify the links that point to your external pages versus to parts of your own page etc.
+			<br>
+			- Its value should describe the class it belongs to. In the example on page 184, key paragraphs have a class attribute whose value is "important".
+		</p>
+
+		<h2>Block Elements</h2>
+
+		<p>Some elements will always appear to start on a new line in the browser window. These are known as block level elements. Example of block elements are h1, p, ul, and li.</p>
+	
+		<h2>Inline Elements</h2>
+
+		<p>Some elements will always appear to continue on the same line as their neighbouring elements. These are known as inline elements. Example of inline elements are: a, b, i, strong, em, and img.</p>	
+
+
+		<h1>Grouping Text and Elements in a BLOCK</h1>
+
+		<h2>Div</h2>
+
+		<p>
+			- The div element allows you to group a set of elements together in one block-level box.
+			<br>
+			- For example, you might create a div element to contain all of the elements for the header of your site (the logo and the navigation), or you might create a div element to contain comments from visitors.
+			<br>
+			- In the browser, the contents of the div element will start on a new line, but other than this it will make no difference to the presentation of the page.
+			<br>
+			- Using an id or class attribute on the div element, however, means that you can create CSS style rules to indicate how much space the div element should occupy on the screen and change the appearance of all the elements contained within it.
+			<br>
+			- It also makes it easier to follow your code if you have used div elements to hold each section of the page. Especially if you use comments at the end of the closing div tag to identify what section you divided.
+			<br>
+			<br>
+			Div example:
+		</p>
+
+		<div id="header">
+			<img src="images/AOTeren.jpg" alt="Eren from AOT" width="200" height="200">
+
+			<ul>
+				Appeared in:
+				<li> <a href="http://google.com">Attack On Titan Season 1</a></li>
+				<li> <a href="http://google.com">Attack On Titan Season 2</a></li>
+				<li> <a href="http://google.com">Attack On Titan Season 3</a></li>
+				<li> <a href="http://google.com">Attack On Titan Junior</a></li>
+			</ul>
+
+		</div>
+	
+		<h1>Grouping Text and Elements INLINE</h1>
+
+		<h2>Span</h2>
+
+		<p>
+			The span element acts like an inline equivalent of the div element. It is used either to:
+			<ul>
+				<li>Contain a section of text where there is no other suitable element to differentiate it from surrounding text.</li>
+				<li>Contain a number of inline elements.</li>
+				<li>The most common reason why people use span elements is so that they can control the appearance of the content of these elements using CSS.</li>
+			</ul>
+			<br>
+			You will usually see that a class or id attribute is used with span elements:
+			<ul>
+				<li>To explain the purpose of this span element</li>
+				<li>So that CSS styles can be applied to elements that have specific values for these attributes.</li>
+			</ul>
+			<br>
+			<br>
+			Span example:
+			<p>Anish Kapoor won the Turner Prize in 1991 and exhibited at the <span class="gallery">Tate Modern</span> gallery in London in 2003.</p>
+		</p>
+
+
+		<h2>iFrames</h2>
+		<p>An iframe is like a little window that has been cut into your page. And in that window you can see another page. The term iframe is an abbreviation for inline frame. <br>
+			<br>
+		- scrolling: takes on yes or no values to indicate if the user can scroll around in that frame or not. This is not supported in HTML5.
+		<br>
+		- frameborder: the frameborder attribute will not be supported in HTML5. In HTML4 and XHTML, it indicates whether the frame should have a border or not. A value of 0 means no border and 1 means yes border and auto will have them show if needed.
+		<br>
+		- seamless: in HTML5, a new attribute called seamless can be applied to an iframe where scrollbars are not desired. The seamless attribute (like some other new HTML attributes) does not need a value, but you will often sea authors give it a value of seamless. Older browsers do not support the seamless attribute.
+		<br>
+
+		<iframe 
+			width="450" 
+			height="350" 
+			src="http://maps.google.co.uk/maps?q=moma+new+york&amp;output=embed">
+		</iframe>
+
+		<h2>Information about your pages</h2>
+
+		<ul>
+			<li>Meta: the meta element lives inside the head element and contains information about that webpage. It is not visible to other users but fulfilles a number of purposes such as telling search engines about your page, who created it, and whether or not it is time sensitive (can be set to expire). See page 191 for more information.</li>
+			<li>It uses attributes to carry information.</li>
+			<li>The most common attributes are the name and content attributes which tend to be used together. They specify properties of the entire page.</li>
+			<li>name attribute: value you give to name is the property you are setting.</li>
+			<li>content attribute: value you give to content is the value you want to give to this property.</li>
+			<li>http-equiv: is also used in pairs with content.</li>
+			<li>values: description, keywords, robots, http-equiv author, http-equiv pragma, and http-equiv expires (date must be specified in the format shown).</li>
+			<li>pragma - prevents the browser from caching(storing the page locally).</li>
+			<li>expires - expires the cached page at a certain date and time.</li>
+			<li>Example of meta is in the head of this page.</li>
+		</ul>
+			<br>
+			<br>
+			Refer to book for using escape characters. Or google.
+		</p>
+
+	</body>
+</html>

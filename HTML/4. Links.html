@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chapter 4: Links</title>
+	</head>
+
+	<body>
+		<h1 id = "Title">Chapter 4: Links</h1>
+
+		<p>Links are created using the a element. Refer to the notebook for a detailed look. The a element has an attribute CALLED(name) href. The VALUE of the href attribute is the page that you want people to go to when they click on the link. When you link to a DIFFERENT WEBSITE, the value of the href attribute will be a full web address for the site which is known as an <b>absolute</b> URL.</p>
+
+		<h2>Linking to other sites.</h2>
+		<p>Movie Review Sites:</p>
+			<ul>
+				<li>
+					<a href="http://www.empireonline.com">Empire</a>
+				</li>
+				<li>
+					<a href="http://metacritic.com">Metacritic</a>
+				</li>
+				<li>
+					<a href="http://rottentomatoes.com">Rotten Tomatoes</a>
+				</li>
+				<li>
+					<a href="http://variety.com">Variety</a>
+				</li>
+				<li>
+					<a href="http://imdb.com">IMDB</a>
+				</li>
+			</ul>
+		
+		
+		<h2>Linking to other pages on the same site.</h2>
+		<p>When you are linking to other pages within the same site, you don't need to specify the domain name in the URL. You can use a shorthand known as relative URL.</p>
+		
+		<p>My notes and examples from this textbook: </p>
+			<ol>
+				<li>Chapter 1: <a href="Structure.html">Structure</a></li>
+				<li>Chapter 2: <a href="Text.html">Text</a></li>
+				<li>Chapter 3: <a href="Lists.html">Lists</a></li>
+				<li>Chapter 4: <a href="Links.html">Links</a></li>
+			</ol>
+
+		<h2>Email Links</h2>
+		<p>To create a link that starts up the user's email program and addresses an email to a specified email address, you use the a element with the href attribute starting with mailto: followed by the email address you want the email directed to.</p>
+
+		<a href="mailto:shazim_123@hotmail.com">Email Shazim</a>
+
+		<h2>Opening Links in a new Window</h2>
+		<p>If you want a link to open in a new window, you can use the target attribute on the opening a tag. The value of this attribute should be _blank</p>
+
+		<a href="http://www.google.com" target="_blank">Google in a new window/tab</a>
+		<br>
+		<a href="Lists.html" target="_blank">Chapter 3 in a new tab</a>
+
+		<h2>Linking to a specific part of the same page</h2>
+		<p>
+			<ul>
+				<li>Before you can link to a specific part of a page, you need to identify the points in the page that the link will go to. You do this using the id attribute (which can be used on every HTML element).</li>
+
+				<li>The value of the id attribute should start with a letter or an underscore (not a number or any other character) and, on a single page, no two id attributes should have the same value.</li>
+
+				<li>To link to an element that uses an id attribute you use the a element again, but the value of the href attribute starts with the # symbol followed by the value of the id attribute of the element you want to link to.</li>
+			</ul>
+
+			<a href= "#Title" >Title of this page.</a>
+		</p>
+
+		<h2>Linking to a specific part of another page</h2>
+		<p>
+			You can just add the # symbol followed by the id of the element you want to refer to at the end of the link for that page.
+			<br>
+			<a href="Lists.html#ListsTitle">Title of Chapter 3</a>
+		</p>
+
+		<h2>Example of use of Links:</h2>
+
+		<h1>Dragonball Fighterz Stunfest Tournament</h1>
+
+		<p>
+			Official Homepage link: <a href="https://www.stunfest.com/en/home/">Stunfest</a> 
+			<br>
+			Click here to email and inquire more about the tournament: <a href="mailto:shazim_123@hotmail.com">Email</a>
+			<br>
+			Click here to view the tournament events: <a href="https://smash.gg/tournament/stunfest-2018-1/events">Events and Games</a>
+			<br>
+			Click here to return to the top of this page: <a href="#Title">Top</a>
+		</p>
+
+	</body>
+</html>

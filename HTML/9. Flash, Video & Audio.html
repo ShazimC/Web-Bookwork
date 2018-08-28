@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chapter 9: Flash, Video and Audio</title>
+
+
+		
+
+	</head>
+
+	<body>
+		<h1>Chapter 9: Flash, Video and Audio</h1>
+
+		<p>The most popular way of adding Flash into a web page is using J A V A S C R I P T.</p>
+
+		<h2>SWFObject script</h2>
+		<p>The technique uses a div element to create a space where the Flash movie should sit. The div element has an id attribute whose value is used by the SWFObject script. In this example, the value of the id attribute is bird. Inside the div element you can place the alternative content for users who are not able to play Flash.
+			<br>
+			<br>
+		The SWFObject script will check to see if the user's browser can play the Flash movie. If it can, the script will replace the content of the div with the .swf file.
+		<br>
+		<br>
+		Use text description as alternative content for those with impairments.
+
+		<h3>Adding a Flash movie</h3>
+		
+		<div id="bird">
+			<p>A bird doin its thang</p>
+			<embed src="http://www.maniez.org/images/flash/bird.swf" width="400" height="200">
+		</div>
+
+		<p>Refer to page 208 for the technique mentioned in the book.</p>
+
+		<h2>Preparing a Flash Video for your Site</h2>
+
+		<ul>
+			<li><b>Step 1:</b> Convert your video into flv format. </li>
+			<li><b>Step 2:</b> Find an FLV Player to play the video. Two sites that offer flv players: osflv.com and longtailvideo.com</li>
+			<li><b>Step 3:</b> Include the player and video in your page. You can use javascript techniques like SWFObject etc.</li>
+		</ul>
+
+		<p>Adding Flash Video to your pages: </p>
+		
+
+		<div id="loud"> <p>It's nice out.</p>
+		
+			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+			<script type="text/javascript">
+					var flashvars = {};
+					var params = {movie: "Chapter 9 stuff/FLV videos/itsNiceOut.flv"};
+
+					swfobject.embedSWF("Chapter 9 stuff/FLV videos/player8.swf", "loud", "400", "320", "8.0.0", flashvars, params);
+			</script>
+		</div>
+
+		<h2>Preparing Video for your pages using the video tag.</h2>
+			<h3>Eric Andre's Opinion on Baseball</h3>
+			<p>
+				<ul>
+					<li>src = path of the video on the web or computer</li>
+					<li>poster = attribute that allows you to specify an image to show while the video is downloading or until the user tells the video to play.</li>
+					<li>width, height</li>
+					<li>controls: indicates the browser to supply its own controls for playback</li>
+					<li>autoplay: specifies that the file should play automatically.</li>
+					<li>loop: loops the video.</li>
+					<li>preload: tells the browser what to do when the page loads. It can have one of three values:
+						<ul>
+							<li>none: the browser should not load the video until the user presses play.</li>
+							<li>auto: browser should download the video when the page loads.</li>
+							<li>metadata: browser should just collect information such as size, first frame, track list, and duration.</li>
+						</ul>
+					</li>
+				</ul>
+			</p>
+		<video src="Chapter 9 stuff/baseball.mp4" preload="metadata" controls >
+			<p>Baseball</p>
+		</video>
+
+		<h2>Multiple Video Sources</h2>
+			<ul>
+				<li>source element: to specify the location of the file to be played, you can use the source element inside the video element. (This should replace the src attribute on the opening video tag. You can also use multiple source elements to specify that the video is available in different formats.</li>
+				<li>src: specifies the path to the video.</li>
+				<li>type: you should use this attribute to tell the browser what format the video is. Otherwise, it will download some of the video to see if it can play the file (which will take time and bandwidth).</li>
+				<li>codecs: The codec that was used to encode the video is supploed within the type attribute. Note the use of single quotes, as well as double quotes in the type attribute, when it is supplied.</li>
+				<li>NOTE: if the browser does not support the video element or the format of video used, it will display whatever is between the opening video and closing tag.</li>
+			</ul>
+
+		<video preload controls>
+			<source src = "Chapter 9 stuff/baseball.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+			
+			<source src="Chapter 9 stuff/baseball.webm" type='video/webm;
+			codecs="vp8, vorbis"'>
+		</video>
+
+		<p><b>Note:</b> By offering videos in both HTML5 and Flash Video Formats, you will ensure that the majority of users can view it.</p>
+
+		<h2>Adding audio to web pages.</h2>
+
+		<p>By far the most popular format for putting audio on web pages is mp3. Here we added reluctant heroes from Attack on Titan using the swfObject technique:</p>
+
+		<script type="text/javascript"
+		 src="http://ajax.googleapis.com/ajax/libs/
+		 swfobject/2.2/swfobject.js"></script>
+		 <script type="text/javascript">
+		 var flashvars = {};
+		 var params = {mp3: "Chapter 9 stuff/sample.mp3"};
+		 swfobject.embedSWF(
+		 "Chapter 9 stuff/player_mp3.swf",
+		 "music-player", "200", "20", "8.0.0",
+		 flashvars, params);</script>
+
+		 <div id="music-player">
+			 <p>You cannot hear this track because this
+			 browser does not support our Flash music
+			 player.</p>
+		 </div>
+
+		<h2>Adding HTML5 audio to your pages</h2>
+		<p>Here we can add audio directly from html using the audio tag.</p>
+
+		<audio src="Chapter 9 stuff/sample.mp3" controls="auto"></audio>
+		<p>Most of the same attributes apply to the audio tag as they did with the video tag:
+			<ul>
+				<li>src, controls, autoplay, preload, loop</li>
+				<li>use the source tag to specify more than one audio file using source element betweent eh opening and closing audio tags. THIS IS IMPORTANT BECAUSE DIFFERENT BROWSERS SUPPORT DIFFERENT FORMATS FOR AUDIO FILES.</li>
+				<li>MP3: Safari 5+, Chrome 6+, IE9</li>
+				<li>Ogg Vorbis: Firefox 3.6, Chrome 6, Opera 1.5, IE9</li>
+			</ul>
+		</p>
+	</body>
+</html>

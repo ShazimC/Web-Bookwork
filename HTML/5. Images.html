@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chapter 5: Images</title>
+	</head>
+
+	<body>
+		
+		<h1>Chapter 5: Images</h1>
+
+		<h2>Adding Images</h2>
+		<p>To add an image into the page you need to use an img element. This is an empty element which means there is no closing tag. It must carry the following two attributes: </p>
+		<ul>
+			<li><b>src:</b> This tells the browser where it can find the image file. This will usually be a relative URL pointing to an image on your own site.</li>
+
+			<li><b>alt:</b> This provides a text description of the image which describes the image if you cannot see it. alt --> alt text, should be accurate description of the image and if its just design then it can be left blank.</li>
+
+			<li><b>title:</b> You can also use the title attribute with the img element to provide additional information about the image. Most browsers will display the content of this attribute in a tooltip when the users hovors over the image.</li>
+		</ul>
+		<img src="images/rengar.jpg" alt="A character named Rengar." title="This is Rengar, a playable character from the popular game League of Legends.">
+
+
+		<h2>Height and Width of Images</h2>
+
+		<p><b>height tag:</b> this specifies the height of the image in pixels.</p>
+		<p><b>width tag:</b> this specifies the width of the image in pixels.</p>
+		<p><b>Pro-tip:</b> Telling the browser how much space to leave for an image allows it to render the rest of the page without waiting for the image to download. This is being done more popularly with CSS than HTML.</p>
+		
+		<img src="images/rengar.jpg" alt="Rengar." width="670" height="400">
+		
+		<h2>Image placement</h2>
+		<p>- img element is an inline element like em or strong or bold, that means it can be placed inside a block level element like in a header or paragraph. The text will adjust to inline elements.</p>
+		<ul>
+			<li> <p>Before the paragraph tags:</p>
+				<img src="images/rengar.jpg" alt="Rengar." width="670" height="400">
+				<p>Rengar is a ferocious vastayan trophy hunter who lives for the thrill of tracking down and killing dangerous creatures. He scours the world for the most fearsome beasts he can find, especially seeking any trace of Kha'Zix, the Void creature who scratched out his eye. Rengar stalks his prey neither for food nor glory, but for the sheer beauty of the pursuit.</p>
+			</li>
+			
+			<li>
+				<p>After the opening tag, before the paragraph:</p>
+				<p><img src="images/rengar.jpg" alt="Rengar." width="670" height="400">Rengar is a ferocious vastayan trophy hunter who lives for the thrill of tracking down and killing dangerous creatures. He scours the world for the most fearsome beasts he can find, especially seeking any trace of Kha'Zix, the Void creature who scratched out his eye. Rengar stalks his prey neither for food nor glory, but for the sheer beauty of the pursuit.</p>
+			</li>
+
+			<li>
+				<p>In the middle of the paragraph:</p>
+				<p>Rengar is a ferocious vastayan trophy hunter who lives for the thrill of tracking down and killing dangerous creatures. <img src="images/rengar.jpg" alt="Rengar." width="670" height="400">He scours the world for the most fearsome beasts he can find, especially seeking any trace of Kha'Zix, the Void creature who scratched out his eye. Rengar stalks his prey neither for food nor glory, but for the sheer beauty of the pursuit.</p>
+			</li>
+		</ul>
+
+		<h2>Aligning Images Horizontally</h2>
+		<p>The align attribute was commonly used to indicate how the other parts of a page should flow around an image. It has been removed from HTML5 and new websites should use CSS to control the alignment of images.</p>
+
+		<p><img src="images/rengar.jpg" alt="Rengar." width="370" height="200" align = "left">Rengar is a ferocious vastayan trophy hunter who lives for the thrill of tracking down and killing dangerous creatures. He scours the world for the most fearsome beasts he can find, especially seeking any trace of Kha'Zix, the Void creature who scratched out his eye. Rengar stalks his prey neither for food nor glory, but for the sheer beauty of the pursuit.</p>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<hr>
+		<p><img src="images/rengar.jpg" alt="Rengar." width="370" height="200" align = "right">Rengar is a ferocious vastayan trophy hunter who lives for the thrill of tracking down and killing dangerous creatures. He scours the world for the most fearsome beasts he can find, especially seeking any trace of Kha'Zix, the Void creature who scratched out his eye. Rengar stalks his prey neither for food nor glory, but for the sheer beauty of the pursuit.</p>
+		
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<h2>Aligning Images Vertically</h2>
+		<p>The align attribute is no longer used in HTML5, but is covered here because you may see it used in older websties and it is still used in the code created by some visual editors. CSS is used to create the same effects.</p>
+
+		<p>There are three values that the align attribute can take that control how the image should be aligned vertically with the text that surrounds it. Top; aligns the first line of the surrounding text with the top of the image. Middle and Bottom. </p>
+
+		<p><img src="images/rengar.jpg" alt="Rengar." width="370" height="200" align = "top">Rengar is a ferocious vastayan trophy hunter who lives for the thrill of tracking down and killing dangerous creatures. He scours the world for the most fearsome beasts he can find, especially seeking any trace of Kha'Zix, the Void creature who scratched out his eye. Rengar stalks his prey neither for food nor glory, but for the sheer beauty of the pursuit.</p>
+
+		<hr>
+
+		<p><img src="images/rengar.jpg" alt="Rengar." width="370" height="200" align = "middle">Rengar is a ferocious vastayan trophy hunter who lives for the thrill of tracking down and killing dangerous creatures. He scours the world for the most fearsome beasts he can find, especially seeking any trace of Kha'Zix, the Void creature who scratched out his eye. Rengar stalks his prey neither for food nor glory, but for the sheer beauty of the pursuit.</p>
+
+		<hr>
+
+		<p><img src="images/rengar.jpg" alt="Rengar." width="370" height="200" align = "bottom">Rengar is a ferocious vastayan trophy hunter who lives for the thrill of tracking down and killing dangerous creatures. He scours the world for the most fearsome beasts he can find, especially seeking any trace of Kha'Zix, the Void creature who scratched out his eye. Rengar stalks his prey neither for food nor glory, but for the sheer beauty of the pursuit.</p>
+
+		<h1>THREE RULES FOR CREATING IMAGES</h1>
+
+		<h2>1</h2>
+		<p>Save images in the right Format. Usually png, jpeg, or gif. Any unusual format can slow the webpage down.</p>
+
+		<h2>2</h2>
+		<p>Save images at the right Size. Larger the size, larger the load time. Also Save images at the same width and height that they will appear on the webpage. Avoid stretching/distortion as much as possible.</p>
+
+		<h2>3</h2>
+		<p>Use the correct resolution. Larger the resolution, the larger the load time.</p>
+
+		<h2>Tools to edit and save images:</h2>
+		<ul>
+			<li>Adobe Photoshop (installed)</li>
+			<li>Online editors:</li>
+			<li>
+				<ul>
+					<li><a href="http://Photoshop.com">Photoshop.com</a></li>
+					<li><a href="http://Pixlr.com">Pixlr</a></li>
+					<li><a href="http://splashup.com">Splashup</a></li>
+					<li><a href="http://ipiccy.com">iPiccy</a></li>
+				</ul>
+			</li>
+		</ul>
+
+		<h2>Image formatting tip: Many different colors? Use JPG.</h2>
+		<h2>Use GIF or PNG format when saving images with few colors or large areas of the same color.</h2>
+		<h2>The images you use on your website should be saved at the same width and height that you want them to appear on the page. Refer to page 113 to find how to resize images etc.</h2>
+		<h2>Images created for the web should be saved at a resolution of 72ppi. The higher the resolution of the image, the larger the size of the file.</h2>
+
+		<figure>
+			<img src="images/rengar.jpg" alt="Rengar." width="370" height="200" align = "bottom">
+			<br>
+			<figcaption>Rengar is a predator and hunts for the world's most dangerous and rarest beasts as a means of achievement.</figcaption>
+		</figure>
+
+	</body>
+</html>

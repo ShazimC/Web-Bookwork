@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chapter 6: Tables</title>
+	</head>
+
+	<body>
+		<h1>Chapter 6: Tables</h1>
+
+		<p>In HTML, a table is written out row by row.</p>
+
+		<h2>Basic Table Structure</h2>
+
+		<p>table - Table tag, tr - table row, td - table data</p>
+
+		<table>
+			<tr>
+				<td>15</td>
+				<td>15</td>
+				<td>30</td>
+			</tr>
+			<tr>
+				<td>45</td>
+				<td>60</td>
+				<td>45</td>
+			</tr>
+			<tr>
+				<td>60</td>
+				<td>90</td>
+				<td>90</td>
+			</tr>
+		</table>
+
+		<h2>Table Headings</h2>
+		<p>Table Headings = Row/Column titles. Element/Tag = th. Use it like you would use table data. So top left is left empty. Better to use th for screening and appearances.</p>
+
+		<table>
+			<tr>
+				<th></th>
+				<th scope = "col">Saturday</th>
+				<th scope = "col">Sunday</th>
+			</tr>
+			<tr>
+				<th scope = "row">Tickets Sold:</th>
+				<td>120</td>
+				<td>135</td>
+			</tr>
+			<tr>
+				<th scope = "row">Total Sales:</th>
+				<td>$600</td>
+				<td>$675</td>
+			</tr>
+		</table>
+
+		<h2>Spanning Columns</h2>
+		<p>To span columns, use the colspan attribute on either th or td element. Like so:</p>
+		
+		<table>
+			<tr>
+				<th></th>
+				<th>9am</th>
+				<th>10am</th>
+				<th>11am</th>
+				<th>12am</th>
+			</tr>
+			<tr>
+				<th>Monday</th>
+				<td>Geography</td>
+				<td>Math</td>
+				<td colspan="2">Computer Science</td>
+			</tr>
+			<tr>
+				<th>Tuesday</th>
+				<td colspan="3">Gym</td>
+				<td>Home Ec</td>
+			</tr>
+		</table>
+
+		<h2>Spanning Rows</h2>
+		<p>To span rows, use the rowspan attribute on either th or td element. Like so:</p>
+
+		<table>
+			<tr>
+				<th></th>
+				<th>ABC</th>
+				<th>BBC</th>
+				<th>CNN</th>
+			</tr>
+
+			<tr>
+				<th>6pm - 7pm</th>
+				<td rowspan="3">Movie</td>
+				<td>Comedy</td>
+				<td>News</td>
+			</tr>
+
+			<tr>
+				<th>7pm -8pm</th>
+				<td>Sport</td>
+				<td>Current Affairs</td>
+			</tr>
+
+			<tr>
+				<th>8pm - 9pm</th>
+				<td>Sherlock</td>
+				<td>Anime</td>
+			</tr>
+		</table>
+		<br>
+		<table border = " 10" >
+			<thead>
+				<tr>
+					<th width="400">Date</th>
+					<th>Income</th>
+					<th>Expenditure</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<th>1st January</th>
+					<td>250</td>
+					<td>36</td>
+				</tr>
+				
+				<tr>
+					<th>2nd January</th>
+					<td>285</td>
+					<td>48</td>
+				</tr>
+				
+				<tr>
+					<th>31s January</th>
+					<td>129</td>
+					<td>64</td>
+				</tr>
+			</tbody>
+
+			<tfoot>
+				<tr>
+					<td></td>
+					<td bgcolor="#cccccc">7824</td>
+					<td bgcolor="#cccccc">1241</td>
+				</tr>
+			</tfoot>
+		</table>
+
+		<h1>Example Table</h1>
+		<table border = "10">
+			<thead>
+				<tr>
+					<td></td>
+					<td width="150">HTML+CSS</td>
+					<td width="150">JavaScript</td>
+					<td width="150">DataStructures</td>
+					<td width="150">Quran</td>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>Chapter:</td>
+					<td>7</td>
+					<td>1</td>
+					<td>2</td>
+					<td>2</td>
+				</tr>
+
+				<tr>
+					<td>Pages covered: </td>
+					<td>151</td>
+					<td>0</td>
+					<td>58</td>
+					<td>3</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
