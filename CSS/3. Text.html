@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chapter 12: Text</title>
+		<link rel="stylesheet" type="text/css" href="3. Text.css">
+	</head>
+
+	<body>
+
+		<h1>Chapter 12: Text</h1>
+		
+		<div class="sections">
+			<p>
+				<h2>Typeface Terminology (refer to page 267 for images):</h2>
+		
+				<ul>
+					<li> <b>Serif:</b> Serif fonts have extra details on the ends of the main strokes of the letters. These details are known as serifs.</li>
+					<li> <b>Sans-Serif:</b> Sans-serif fonts have straight ends to letters, and therefore have much cleaner design.</li>
+					<li> <b>Monospace:</b> Every letter in a monospace (or fixed-width) font is the same width. (Non-monospace fonts have different widths).</li>
+				</ul>
+			</p>
+		</div>
+
+		<br>
+		<br>
+
+		<div class="sections">
+			<h2>Specifying Typefaces</h2>
+
+			<ul>
+				<li><b>font-family:</b> allows you to specify the typeface that should be used for any text inside the element(s) to which a CSS rule applies.</li>
+				<li>The people who are visiting your site need the typeface you have specified installed on their computer in order for it to be displayed.</li>
+				<li>You can specify a list of fonts seperated by commas so that, if the user does not have your first choice of typeface installed, the browser can try to use an alternative font from the list.</li>
+				<li>It is recommended to use no more than 3 typefaces on a page.</li>
+			</ul>
+		</div>
+
+		<br>
+		<br>
+
+		<div class="sections">
+			<h2>Size of Type</h2>
+
+			<ul>
+				<li>
+					<b>font-size:</b> enables you to specify a size for the font. There are several ways to specify the size of a font. The most common are:
+					<ul>
+						<li><b>Pixels:</b> commonly used because they allow web designers to very precisely control over how much space their text takes up. The number of pixels is followed by the letters px.</li>
+						<li><b>Percentages:</b> The default size of text in browsers is 16px. So a size of 75% would be the equivalent of 12px, and 200% would be 32px.</li>
+						<li><b>ems:</b> An em is equivalent to the width of a letter m. Kinda like banana for scale?</li>
+						<li><b>Default browser text size is 16px.</b> Use pixels because it is the best way to ensure that the type appears at the size you intended (because percentages and ems are more likely to vary if a user has changed the default size of text in their browser.</li>
+						<li><b>NOTE:</b> refer to page 276 for size type conversions.</li>
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<br><br>
+		<div class="sections">
+			<h2>More Font Choice/Modifiers</h2>
+		
+			<p>
+				<ul>
+					<li><b>@font-face:</b> allows you to use a font, even if it is not installed on the computer of the person browsing, by allowing you to specify a path to a copy of the font, which will be downloaded if it is not on the user's machine. <br><br>
+					Because this technique allows a version of the font to be downloaded to the user's computer, it is important that the license for the font permits it to be used this way. You add the font to your style by using the @font-face rule (page 277)</li>
+					<li><b>font-family:</b> This specifies the name of the font. For open source fonts: page 277, most commonly tho: google.com/webfonts</li>
+					<li><b>font format:</b> page 278 for detailed look. TLDR: format function in CSS allows you to specify the format for the font you are trying to use.</li>
+					<li><b>font-weight:</b> allows you to create bold text. There are two values that this property commonly takes: <ul>
+						<li><b>normal:</b> normal weight</li>
+						<li><b>bold:</b> bold weight</li>
+					</ul></li>
+					<li><b>font-style:</b> <ul>
+						<li><b>normal:</b> causes the text to be styled in its normal state.</li>
+						<li><b>italic:</b> italic</li>
+						<li><b>oblique:</b> italic but on steroids?</li>
+					</ul></li>
+					<li><b>text-transform:</b> can take on 3 values: <ul>
+						<li><b>uppercase:</b> all uppercase</li>
+						<li><b>lowercase:</b> all lowercase</li>
+						<li><b>capitalize:</b> causes the first letter of every word to be capitalized.</li>
+					</ul></li>
+					<li><b>text-decoration:</b>
+						<ul>
+							<li><b>none:</b> This removes any decoration already applied to the text.</li>
+							<li><b>underline:</b> This adds a line underneath the text.</li>
+							<li><b>overline:</b> This adds a line over the top of the text.</li>
+							<li><b>line-through:</b> This adds a line THROUGH the words.</li>
+							<li><b id="blink">blink:</b> This animates the text to make it flash on or off (however this is generally frowned upon, as it is considered rather annoying).</li>
+						</ul></li>
+					<li>
+						<b>Leading:</b> term typographers use for the vertical space between lines of text. In a typeface, the part of a letter that drops beneath the baseline is called a <b>descender</b>, while the highest point of a letter is called the <b>ascender</b>. Leading is measured from the bottom of the descender on one line to the top of the ascendor on the next.
+						<ul>
+							<li><b>line-height:</b> </li>
+						</ul>
+					</li>
+					<li>
+						<b>Letter & Word Spacing</b>: <b>Kerning</b> is a term typographers use for the space between each letter. You can control the space between each letter with the <b>letter-spacing</b> property.
+						<ul>
+							<li><b>Letter-spacing:</b>: space between letters.</li> 
+							<li><b>word spacing:</b>: space between words.</li>
+						</ul>
+					</li>
+					<li>
+						<b>Alignment: text-align</b>
+						<ul>
+							<li>left</li>
+							<li>right</li>
+							<li>center</li>
+							<li>justify: this indicates that every line in a paragraph, except the last line, should be set to take up the full width of the containing box.</li>
+						</ul>
+					</li>
+					<li>
+						<b>Vertical Alignment: vertical-align</b>: <u>A COMMON SOURCE OF CONFUSION.</u> It is <b>not</b> intended to allow you to vertically align text in the middle of block level elements such as p and div, although it does have this effect when used with table cells td and th. <br>
+						It is more commonly used with inline elements such as img, em or strong elements. When used with these elements, it performs a task very similar to the HTML align attribute used on the img element. The values it can take are:
+						<ul>
+							<li>baseline</li>
+							<li>sub</li>
+							<li>super</li>
+							<li>top</li>
+							<li>text-top</li>
+							<li>middle</li>
+							<li>bottom</li>
+							<li>text-bottom</li>
+						</ul>
+					</li>
+					<li>
+						<b>Indenting Text: text-indent</b>: allows you to indent the first line of text within an element. The amount of indentation you want the line to have can be specified in a number of ways but is usually given pixels or ems. It can also take negative values which can be used to push the text OFF the browser.
+					</li>
+					<li>
+						<b>CSS3 Drop Shadow- text-shadow: a b c d</b> lmaooo it is commonly used but lacks support in all browsers. It is used to drop a shadow under the text. <br> The value of this property is quite comlicated because it can take three lengths and a color for the drop shadow:
+						<ul>
+							<li><b>first value (length):</b> indicates how far to the left or right the shadow should fall.</li>
+							<li><b>second value:</b> indicates the distance to the top or bottom that the shadow should fall.</li>
+							<li><b>third value:</b> optional and specifies the amount of blur that should be applied to the drop shadow.</li>
+							<li><b>fourth value:</b> color of the drop shadow.</li>
+						</ul>
+					</li>
+					<li>
+						<b>Psuedio-elements:</b> you put these at the end of your selectors.
+						<ul>
+							<li><b>:first-letter</b></li>
+							<li><b>:first-line</b></li>
+							<li><b>:link</b> - allows you to set styles for links that have not yet been visited.</li>
+							<li><b>:visited</b></li>
+							<li><b>example:</b> <a href="http://google.com">Visited</a> <a href="http://yahoo.com">Not visited</a></li>
+							<li><b>:hover</b> - applied when a user hovers over an element with a pointing device such as a mouse. This has commonly been used to change the appearance of links and buttons when a user places their cursor over them.</li>
+							<li><b>:active</b> - applied when an element is being activated by a user; for example, when a button is being pressed or a link is being clicked. Sometimes this is used to make a button or link feel more like it is being pressed by changing the style or position of the element slightly.</li>
+							<li><b>:focus</b> This is applied when an element has focus. Any element that you can interact with, such as a link you can click on or any form control can haev focus.</li>
+							<li><b>NOTE:</b> when psuedo-classes are used, they should appear in this order: <i id="order">:link, :visited, :hover, :focus, :active</i></li>
+							<li>Refer to page 292 for list of attribute selectors.</li>
+						</ul>
+					</li>
+				</ul>
+			</p>
+
+		</div>
+	</body>
+</html>

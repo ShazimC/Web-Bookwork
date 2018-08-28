@@ -1,0 +1,49 @@
+body {
+	font-family: Arial, sans-serif;
+	padding: 20px;
+}
+
+b{
+	color: darkred;
+}
+
+b#blink{
+	text-decoration: underline;
+	text-shadow: 1px 1px 3px #666666;
+}
+
+div.sections{
+	background-color: lightgray;
+	color: navy;
+	padding: inherit;
+	font-size: 18px;
+}
+
+h2{
+	font-family: Arial;
+	font-size: 24px;
+	color: purple;
+}
+
+h1{
+	font-size: 36px;
+	color: green;
+	text-transform: uppercase;
+	letter-spacing: 5px
+}
+
+li{
+	line-height: 30px;
+}
+
+a:link {
+	color: deeppink;
+}
+
+a:visited {
+	color: green;
+}
+
+i#order{
+	display: block;
+}

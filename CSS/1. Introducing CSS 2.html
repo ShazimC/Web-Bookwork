@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Introducing CSS 2</title>
+
+		<style type="text/css">
+			body{
+				font-family: Arial;
+				background-color: rgb(185, 179, 175);
+			}
+			h1{
+				color: rgb(255, 255, 255);
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>Using Internal CSS</h1>
+
+		<p>
+			You can also include CSS rules within an HTML page by placing them inside a style element, which usually sits inside the head element of the page. <br>
+			<b>style element:</b> should use the type attribute to indicate that the styles are specified in CSS. The value should be text/css.
+			<b>NOTE:</b> when building a site with more than one page, you should use an external CSS style sheet. This:
+			<ul>
+				<li>Allows all pages to use the same style rules (rather than repeating them each page.</li>
+				<li>Keeps the content seperate from how the page looks.</li>
+				<li>Means you can change the styles used across all pages by altering just one file (rather than each individual page).</li>
+			</ul>
+		</p>
+	</body>
+</html>

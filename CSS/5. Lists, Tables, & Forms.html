@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chapter 14: List, Tables, & Forms</title>
+		<link rel="stylesheet" href="5. Lists, Tables, & Forms.css" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	</head>
+
+	<body>
+		<h1>Chapter 14: List, Tables, & Forms</h1>
+
+		<div>
+			<h2>Bullet Point Styles</h2>
+			
+			<ul>
+				<li>
+					<b>list-style-type:</b> allows you to control the shape or style of a bullet point (also known as a marker). It can be used on rules that apply to the ol, ul, and li elements.
+					<ul>
+						<li>
+							For an <b>unordered list</b> you can use the following values:
+							<ul>
+								<li class="none">none</li>
+								<li class="disc">disc</li>
+								<li class="circle">circle</li>
+								<li class="square">square</li>
+							</ul>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							For an <b>ordered list</b>(numbered) you can use the following values:
+							<ol>
+								<li class="decimal">decimal</li>
+								<li class="decimal-leading-zero">decimal-leading-zero</li>
+								<li class="lower-alpha">lower-alpha</li>
+								<li class="upper-alpha">upper-alpha</li>
+								<li class="lower-roman">lower-roman</li>
+								<li class="upper-roman">upper-roman</li>
+							</ol>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<h2>Images for Bullets</h2>
+
+				<li><b>list-style-image:</b> url("images/star.png"), can be used on li and ul only. You should use margin to increase the vertical distance between each item if the list image is too big. </li>
+
+				<ul class="image">
+					<b>Example:</b>
+					<li>YOSHA</li>
+					<li>OMAE</li>
+					<li>WA</li>
+					<li>MOU</li>
+					<li>SHINDEIRU</li>
+				</ul>
+		</div>
+
+		<div>
+			<h2>Positioning the Marker</h2>
+
+				<b>list-style-position:</b> lists are indented into the page by default and the list-style-position property indicates whether the marker should appear on the inside or outisde of the box containing the main points. 
+
+				<ul>This property can take on two values:
+					<li><b>outside:</b> the bullet sits to the left of the block of text/list.</li>
+					<li><b>inside:</b> the bullet sits inside the box to the left of the text.</li>
+					<li><b>NOTE:</b> list shorthand: <b>list-style: style, image, and position in any order.</b></li>
+				</ul>
+		</div>
+
+		<div>
+			<h2>Table Properties</h2>
+	
+			<table>
+				<tr>
+					<th>Properties</th>
+					<th>Definitions</th>
+				</tr>
+				<tr>
+					<td><b>width:</b></td>
+					<td>to set the width of the table</td>
+				</tr>
+				<tr>
+					<td><b>padding:</b></td>
+					<td>to set the space between the border of each table cell and its content.</td>
+				</tr>
+				<tr>
+					<td><b>text-transform:</b></td>
+					<td>to convert the content of the table headers to uppercase.</td>
+				</tr>
+				<tr>
+					<td><b>letter-spacing</b></td>
+					<td>to set the spacing between the letters.</td>
+				</tr>
+				<tr>
+					<td><b>font-size:</b></td>
+					<td>to set the size of the font.</td>
+				</tr>
+				<tr>
+					<td><b>border-top/border-bottom</b></td>
+					<td>to set borders above and below the table headers.</td>
+				</tr>
+				<tr>
+					<td><b>text-align:</b></td>
+					<td>to align the writing to the left of some table cells and to the right of the others.</td>
+				</tr>
+				<tr>
+					<td><b>background-color:</b></td>
+					<td>to set the background color of the table</td>
+				</tr>
+				<tr>
+					<td><b>:hover</b></td>
+					<td>to highlight a table row when a user's mouse goes over it.</td>
+				</tr>
+				<tr>
+					<td><b>empty-cells:</b></td>
+					<td>to specify whether or not their cells that are empty can should <b>show</b>, <b>hide</b>, or <b>inherit</b> from the element they are in.</td>
+				</tr>
+				<tr>
+					<td><b>border-spacing:</b></td>
+					<td>allows you to control the distance between adjacent cells. By default there is a gap. It can have horizontal and vertical gap in <b>pixels</b></td>
+				</tr>
+				<tr>
+					<td><b>border-collapse:</b></td>
+					<td><b>collapse/seperate</b></td>
+				</tr>
+			</table>
+		</div>
+
+		<div>
+			<h2>Styling Text Inputs</h2>
+
+			Example:
+
+			<form action="example.com">
+				<p>Username: <input type="text" name="username" size="15" maxlength="30"></p>
+			</form>
+		</div>
+
+		<div>
+			<h2>Styling Submit Buttons</h2>
+				<form action="http://google.com">
+					<input id="submit" type="submit" value="Register" name="Register">
+				</form>
+			<ul><b>CSS rules:</b>
+				<li><b>color:</b> used to change the color of the text on the button.</li>
+				<li><b>text-shadow:</b> can give a 3D look to the text in browsers that support this property.</li>
+				<li><b>border-bottom:</b> bottom border of the button.</li>
+				<li><b>background-color:</b> color of the button. <b>Gradient</b> has been used with background-color here which is covered on page 419.</li>
+				<li><b>:hover</b> psuedo-class has been used to change the appearnce of the button when the user hovers over it.</li>
+			</ul>
+		</div>
+
+		<div>
+			<h2>Styling FieldSets & Legends</h2>
+			<ul>
+				<li><b>width:</b> used to control the width of the fieldset.</li>
+				<li><b>color:</b> used to control the color of the text.</li>
+				<li><b>background-color:</b> color behind the items.</li>
+				<li><b>border:</b> used to control te appearance of the border around the fieldset and/or legend.</li>
+				<li><b>border-radius:</b> radius of the corners</li>
+			</ul>
+
+			<form action="http//google.com">
+				<fieldset>
+					<legend>Contact Details</legend>
+					<label for="username">Username:</label>
+					<input type="text" id="username"> <br>
+					<label for="email">Email:</label>
+					<input type="email" id="email">
+				</fieldset>
+			</form>
+		</div>
+		
+		<div>
+			<h2>Cursor Styles</h2>
+			
+			<ul>
+				<b>cursor</b>: allows you to control the type of mouse cursor that should be displayed to users. Here are the most commonly used values for this property:
+				<li>auto</li>
+				<li>crosshair</li>
+				<li>default</li>
+				<li>pointer</li>
+				<li>move</li>
+				<li>text</li>
+				<li>wait</li>
+				<li>help</li>
+				<li>url("cursor.gif")</li>
+			</ul>
+		</div>
+	</body>
+</html>

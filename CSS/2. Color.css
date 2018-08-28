@@ -1,0 +1,33 @@
+* {
+	font-family: Courier New;
+	color: navy;
+	background-color: lightgray;
+}
+
+h2{
+	color: DarkCyan;
+	background-color: rgba(0,0,0,0.15)
+}
+
+p{
+	font-family: Arial;
+	color: black;
+}
+li {
+	font-family: Arial;
+	background-color: lightblue;
+	padding: 20px;
+	/*This is how you make comments*/
+}
+
+b{
+	font-family: inherit;
+	color: #ee3e80;
+	background-color: inherit;
+}
+
+p#HSL{
+	background-color: white;
+	background-color: hsla(0,100%,100%,0.5);
+	/*Hue expressed in degrees 0-360, Saturation percentage, Lightness precentage, Alpha (transparency) percentage*/ 
+}

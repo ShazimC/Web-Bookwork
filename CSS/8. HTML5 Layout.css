@@ -1,0 +1,17 @@
+*{
+	font-family: 'Open-Sans', sans-serif;
+	text-align: center;
+}
+body{
+	background-image: -webkit-linear-gradient(gray, black);
+	background-repeat: no-repeat;
+	height: 1000px;
+}
+h1{
+	background-color: #9DD0E4 ;
+	padding: 10px;
+	border: solid 5px black;
+	margin: 50px;
+	letter-spacing: 3px;
+	z-index: 10;
+}

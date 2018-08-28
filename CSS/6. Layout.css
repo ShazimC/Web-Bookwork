@@ -1,0 +1,98 @@
+*{
+	font-family: 'Open-Sans', sans-serif;
+	text-align: center;
+}
+
+h1{
+	background-color: #9DD0E4 ;
+	padding: 10px;
+	border: solid 5px black;
+	margin: 50px;
+	letter-spacing: 3px;
+	z-index: 10;
+}
+
+div{
+	background-color: #E1C2E1;
+	border: solid 5px black;
+	width : 75%;
+	margin: 50px auto;
+	padding: 20px;
+	text-align: left
+
+}
+li{
+	text-align: left;
+	padding: 20px;
+}
+h2.normal{
+	border: solid;
+	width: 200px;
+}
+
+h2.example{
+	border: solid;
+	width: 200px;
+	position: relative;
+	left: 50px;
+	top: 20px;
+}
+
+h2.normal1{
+	border: solid;
+	width: 200px;
+}
+h2.example1{
+	border: solid;
+	width: 200px;
+	position: absolute;
+	left: 400px;
+	top: 500px;
+}
+h2.normal2{
+	border: solid;
+	width: 200px;
+}
+h2.example2{
+	border: solid;
+	position: fixed;
+	top: 0px;
+	left: 4%;
+	padding: 10px;
+	margin: 0px;
+	width: 90%;
+	background-color: #efefef;
+
+}
+
+blockquote{
+	float: right;
+	width: 275px;
+	font-size: 130%;
+	font-style: italic;
+	font-family: Georgia, Times, serif;
+	margin: 10px 0px 10px 10px;
+	padding: 10px;
+	border-top: 1px solid #665544;
+	border-bottom: 1px solid #665544;
+}
+
+div.float{
+	overflow: auto;
+}
+li.floating{
+	width: 140px;
+	float: left;
+	margin: 5px;
+	padding: 5px;
+}
+div.column1{
+	width: 140px;
+	float: left;
+	margin: 10px;
+}
+div.column2{
+	width: 140px;
+	float: left;
+	margin: 10px;
+}

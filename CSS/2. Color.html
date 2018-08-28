@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Chapter 11: Color</title>
+		<link rel="stylesheet" type="text/css" href="2. Color.css">
+	</head>
+
+	<body>
+		<h1>Chapter 11: Color</h1>
+
+		<h2>Foreground Color</h2>
+		<p>
+			<b>color:</b> the color property allows you to specify the color of text inside an element. You can specify any color in CSS in one of three ways:
+			<ul>
+				<li><b>RGB Values:</b> These express colors in terms of how much red, green and blue are used to make it up. For example: rgb(100,100,90)</li>
+				<li><b>HEX CODES:</b> These are six-digit codes that represent the amount of red, green and blue in a color, preceded by a pound/hash # sign. For example: #ee3e90</li>
+				<li><b>Color NAMES:</b> There are 147 predefined color names that are recognized by browsers. For example: DarkCyan</li>
+			</ul>
+		</p>
+
+		<h2>Background Color</h2>
+		<p>
+			CSS treats each HTML element as if it appears in a box, and the background-color property sets the color of the background for that box. The color rules above apply to background-color as well. 
+			<br>
+			<b>NOTE:</b> Refer to color chapter for definitions on rgb values, hex codes, hue etc.
+		</p>
+
+		<h2>CSS3: Opacity</h2>
+
+		<p>
+			CSS3 introduces the opacity property which allows you to specify the opacity of an element and any of its child elements. <br> <br>
+			The value is a number between 0.0 and 1.0 (so a value of 0.5 is 50% opacity etc.) <br> <br>
+			The CSS3 rgba property allows you to specify a color, just like you would with an RGB value, but adds a fourth value to indicate opacity. The rgba value will not apply to child elements. <br>
+			<b>Note:</b> refer to page 255 for HSL Color notes.
+		</p>
+
+		<h2>CSS3: HSL and HSLA</h2>
+
+		<p id="HSL">
+			The hsl color property has been introduced in CSS3 as an alternative way to specify colors. The value of the proprety starts with letters hsl, followed by individual values inside paratheses for:
+			<ul>
+				<li> <b>HUE:</b> This is expressed as an angle between 0 and 360.</li>
+				<li> <b>Saturation:</b> This is expressed as a percentage.</li>
+				<li> <b>Lightness:</b> This is expressed as a percentage with 0% being white, 50% being normal and 100% being black.</li>
+			</ul>
+			The hsla property allows you to specify color properties using hue, saturation, and lightness as above, and adds a fourth value which represents transparency (just like rgba property). The a stands for:
+			<li> <b>Alpha:</b> this is expressed as a number between 0 and 1.0. For example, 0.5 represents 50% transparency, and 0.75 represents 75% transparency.</li>
+		</p>
+	</body>
+</html>

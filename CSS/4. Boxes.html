@@ -1,0 +1,186 @@
+<!DOCTYPE html5>
+<html>
+	<head>
+		<title>Chapter 13: Boxes</title>
+		<link rel="stylesheet" type="text/css" href="4. Boxes.css">
+	</head>
+
+	<body>
+		<h1>Chapter 13: Boxes</h1>
+
+		<h2>Box Dimensions</h2>
+
+		<div>
+			By default a box is sized just big enough to hold its contents. To set your own dimensions you can use the height and width properties. <br><br>
+
+			<b>width:</b> width of box percentages, pixels or ems. Pixels/Percentages are the most popular. <br>
+			<b>height:</b> height of box in ... <br>
+			<b>percentages:</b> the size of the box is relative to the size of the browser window or, if the box is encased within another box, it is a percentage of the size of the containing box. This and ems are more useful for designing across devices with different sized screens.
+		</div>
+
+		<h2>Limiting Width</h2>
+
+		<div class="min">
+			<ul>
+				<li><b>min-width/height:</b> specifies the smallest size a box can be displayed at when the browser window is narrow.</li>
+				<li><b>max-width/height:</b> indicates the maximum width a box can stretch to when the browser window is wide.</li>
+				<li><b>NOTE:</b> These are very helpful properties to ensure that the content of pages are legible (especially on smaller screens of handheld devices).</li>
+			</ul>
+		</div>
+		
+		<h2>Overflowing Content</h2>
+		<div class="overflow">
+			<ul>
+				<li><b>overflow:</b> tells the browser what to do if the content contained within a box is larger than the box itself. It can have one of two values:
+					<li><i>hidden:</i> property simply hides any extra content that does not fit in the box.</li>
+					<li><i>scroll:</i> property adds a scrollbar to the box so that users can scroll to see the missing content.</li></li>
+			</ul>
+		</div>
+
+		<h2>Border, Margin & Padding</h2>
+
+		<div>
+			Refer to page 307 for a detailed look.
+
+			<ul>
+				<li><b>Border:</b> The border seperates the edge of one box from another.</li>
+				<li><b>Margin:</b> Margins sit outside the edge of the border. You can set the width of a margin to create a gap between the borders of two adjacent boxes.</li>
+				<li><b>Padding:</b> Padding is the space between the border of a box and any content contained within it. Adding padding can increase the readability of its contents.</li>
+				<li><b>border-width:</b> is used to control the width of a border. The value of this property can be in pixels or thin, medium, thick. NO PERCENTAGES OR EMS.
+					<ul>
+						<li>border-top-width</li>
+						<li>border-right-width</li>
+						<li>border-bottom-width</li>
+						<li>border-left-width</li>
+						<li>border-width: top, right, bottom, left</li>
+					</ul>
+				</li>
+				<li>
+					<b>border-style:</b> can control the style of border being used for a box.
+					<ul>
+						<li>solid</li>
+						<li>dotted</li>
+						<li>dashed: series of short lines</li>
+						<li>double: two solid lines</li>
+						<li>groove: appears to be carved into the page</li>
+						<li>ridge: appears to stick out from the page</li>
+						<li>inset: appears embedded into the page</li>
+						<li>outset: looks like it is coming out of the screen</li>
+						<li>hidden/none</li>
+						<li>border-top-style, border-left-style..</li>
+					</ul>
+				</li>
+				<li><b>border-color</b>: color of the border</li>
+				<li><b>border:</b> width, style, and color in one go. ex: border: 3px dotted blue</li>
+				<li><b>padding:</b> allows you to specify how much space should appear between the content of an element and its border. pixels, percentages, ems.</li>
+				<li><b>margin:</b> allows you to control the gap between boxes. pixels commonly, percentages, ems. margin: top, right, bottom, left.</li>
+			</ul>
+		</div>
+		
+		<h2>Content Management</h2>
+
+		<div>
+			<h3>Centering Content</h3>
+			If you want to center a box on the page (or center it inside the element that it sits in), you can set the left-margin and right-margin to auto. Example:
+
+			<p class="example">
+				Good evening Ladies and Gentlemen!
+			</p>
+
+			<h3>Change Inline/Block</h3>
+			<b>display:</b> allows you to turn an inline element into a block-level element or vice versa, and can also be used to hide an element from the page. The values this property can take are:
+
+			<ul>
+				<li>inline: causes a blocklevel element to act like an inline element.</li>
+				<li>block: causes an inline element to act like a blocklevel element</li>
+				<li>inline-block: causes a block-level element to flow like an inline element, while retaining other features of a block-level element.</li>
+				<li>none: this hides an element from the page.</li>
+			</ul>
+
+			example:
+
+			<ul>
+				<li class="inline">Home</li>
+				<li class="none">Products</li>
+				<li class="inline">Services</li>
+				<li class="inline">About</li>
+				<li class="inline">Contact</li>
+			</ul>
+
+			<h3>Hiding Boxes</h3>
+
+			<ul>
+				<li>
+					<b>visibility:</b> property allows you to hide boxes from users but it leaves a space where the element would have been. This property can take two values:
+
+					<ul>
+						<li><b>hidden:</b> if the visibility of an element is set to hidden, a <i>blank</i> will appear in its place. If you do not want a blank space to appear, then you should use the display property with a value of none isntead.</li>
+						<li><b>visible</b></li>
+					</ul>
+
+				</li>
+			</ul>
+
+			<h3> CSS3: Border Images</h3>
+
+			<ul>
+				<li>
+					<b>border-image:</b> applies an image to the border of any box. It takes a background image and slices it into nine pieces. The property requires 3 pieces of information:
+					<ol>
+						<li>
+							<b>The URL of the image.</b>
+						</li>
+						<li>
+							<b>Where to slice the image.</b>
+						</li>
+						<li>
+							<b>What to do with the straight edges; the possible values are:
+							</b> 
+							<ul>
+								<li><b>stretch:</b> stretches the image</li>
+								<li><b>repeat:</b> repeats the image</li>
+								<li><b>round:</b> like repeat but if the tiles do not fit exactly, scales the tile image so they will.</li>
+							</ul>
+						</li>
+					</ol>
+				</li>
+			</ul>
+
+			<h3>CSS3: Box Shadows</h3>
+
+			<ul>
+				<li>
+					<b>box-shadow:</b> allows you to add a drop shadow around a box. It works just like the text-shadow property that you met on page 288. It must use at least the first of these two values as well as a color:
+
+					<ul>
+						<li><b>Horizontal Offset:</b> Negative values position the shadow to the left of the box.</li>
+						<li><b>Vertical Offset:</b> Negative values position the shadow to the top of the box.</li>
+						<li><b>Blur Distance:</b> If omitted, the shadow is a solid line like a border.</li>
+						<li><b>Spread Of Shadow:</b> If used, a positive value will cause the shadow to expand in all directions, and a negative value will make it contract.</li>
+						<li><b>Inset (keyword)</b>: can be used before these values to create an inner-shadow.</li>
+						<li>box-shadow: horizontal offset, veritcal offset, blur distance, spread of shadow</li>
+						<li>box-shadow: -5px -5px #777777</li>
+					</ul>
+				</li>
+			</ul>
+
+			<h3>CSS3: Rounded Corners</h3>
+
+			<ul class="rounded">
+				<li><b>border-radius:</b> The value indicates the size of the radius in pixels. Can be specified with border-top-right-radius, border-bottom-left-radius etc or border-radius: topleft topright bottomright bottomleft</li>
+
+			</ul>
+
+			<h3>CSS3: Elliptical Shapes</h3>
+
+			<ul>
+				<li><b>border-radius:</b> To create more complex shapes, you can specify different distances for the horizontal and vertical parts of the rounded corners.</li>
+				<li><b>border-radius: 80px 50px:</b>  will create a radius that is 80px wide and 50px tall in diamter. You can target just one corner with border-top-left-radius..etc</li>
+				<li><b>Shorthand:</b> first you specify the four horizontal values, then the four vertical values: border-radius: 1em 4em 1em 4em / 2em 1em 2em 1em;</li>
+				<li class="Elliptical">EXAMPLE</li>
+				<br>
+				<li class="Circle">EXAMPLE 2</li>
+			</ul>
+		</div>
+	</body>
+</html>

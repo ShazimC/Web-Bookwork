@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chapter 15: Layout</title>
+		<link rel="stylesheet" href="6. Layout.css">
+	</head>
+	<body>
+		<h1>Chapter 15: Layout</h1>
+
+		<div>
+			<h2>Flow</h2>
+			<ul>
+				<li><b>position: static - </b> this is normal flow. In normal flow, each block-level element sits on top of the next one. Since this is the default way in which browsers treat HTML elements, you do not need a CSS property to indicate that elements should appear in normal flow, but the syntax would be position: static.</li>
+				
+				<li><b>position: relative - </b> this is relative positioning. Relative positioning moves an element in relation to where it would have been in normal flow. You can use the offset properties: top, bottom, left, and right to indicate how far to move the element from where it would have been in normal flow. exmaple:</li>
+
+				<h2 class="normal"> EID MUBARAK normal flow</h2>
+				<h2 class="example"> EID MUBARAK relative flow</h2>
+				
+				<li><b>position: absolute - </b> When the position property is given a value of absolute, the box is taken out of normal flow and no longer affects the position of other elements on the page. (They act like it is not there.) example:</li>
+				
+				<h2 class="normal1">EID MUBARAK normal flow</h2>
+				<h2 class="example1">EID MUBARAK absolute flow</h2>
+
+				<li><b>position: fixed - </b> Fixed positioning is a type of absolute positioning that requires the position property to have a value of fixed. It positions the element in relation to the browser window. Therefore, when a user scrolls down the page, it stays in the exact same place. It isa  good idea to try this example in your browser to see the effect. example:</li>
+				
+				<h2 class="normal2">EID MUBARAK normal flow</h2>
+				<h2 class="example2">It's EID TODAY (fixed flow)</h2>
+			</ul> 
+		</div>
+		
+		<div>
+			<h2>Overlapping Elements</h2>
+
+			<b>z-index:</b> When you use relative, fixed or absolute positioning, boxes can overlap. If boxes do overlap, the elements that appear later in the HTML code sit on top of those that are earlier in the page.
+		</div>
+
+		<div class="float">
+			<h2>Floating Elements</h2>
+
+			<b>float:</b> property allows you to take an element in normal flow and place it as far to the left or right of the containing element as possible. When you use the float property, you should also use the width property to indicate how wide the floated element should be. If you do not, results can be inconsistent but the box is likely to take up the full width of the containing element. Example:
+			
+			<blockquote>AEYEET</blockquote><br>
+			
+			<br><b>Using float to place elements side by side: </b> When elements are floated, the height of the boxes can affect where the following elements sit. Each element needs to have a width and float property to identify where to float them and what is the width of the box. <br><br>
+
+			<b>clear:</b> property allows you to say that no element within the same containing element should touch the left or right-hand sides of a box. It can take the following values:
+			<ul>
+				<li class="floating"><b>left:</b> the left hand-side of the box should not touch any other elements appearing in the same containing element.</li>
+				<li class="floating"><b>right:</b> the right hand-side of the box will not touch elements appearing in the same containing element.</li>
+				<li class="floating"><b>both:</b> Neither the left nor right-hand sides of the box will touch elements appearing in the same containing element.</li>
+				<li class="floating"><b>none:</b> Elements can touch either side.</li>
+			</ul>
+			<br><br><br><br><br><br><br><br><br><br>
+			<b>Creating Multi-Column Layouts with Floats</b>: use div elements to represent each column. The following three CSS properties are used to position the columns next to each other:
+
+			<ul>
+				<li><b>width:</b> sets the width of the column</li>
+				<li><b>float:</b> positions the columns next to each other.</li>
+				<li><b>margin:</b> creates the gap between the columns.</li>
+			</ul>
+			
+			<div class="column1">
+				<p>In 1817 Baron von Drais invented a walking machine that would help him get around the royal gardens faster: two same-size ...</p>
+			</div>
+			<div class="column2">
+				<p>In 1817 Baron von Drais invented a walking machine that would help him get around the royal gardens faster: two same-size ...</p>
+			</div>
+		</div>
+
+		<div>
+			<h2>A Fixed Width Layout</h2>
+			<ul>
+				<li><b>Refer to Fixed-Width-Layout.html and .css.</b></li>
+				<li>To create a fixed width layout, the width of the main boxes on a page will usually be specified in pixels (and sometimes their height, too).</li>
+				<li>Here you can see several div eleemtns, each of which uses an id or class attribute to indicate the purpose on the page.</li>
+				<li>The fixed width layout will stay the same width no matter what size the browser window is, where as the liquid layout will stretch (or shrink) to fill the screen.</li>
+			</ul>
+		</div>
+
+	</body>
+</html>

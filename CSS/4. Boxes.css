@@ -1,0 +1,99 @@
+*{
+	font-family: Arial;
+	padding: 20px;
+}
+
+h1{
+	background-color: lightblue;
+	border-width: 2px;
+	border-style: solid;
+	border-color: black;
+	text-align: center;
+	box-shadow: 5px 5px #777777;
+}
+
+h2{
+	background-color: lightgreen;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	text-align: center;
+	box-shadow: 5px 5px #777777;
+}
+
+h3{
+	padding: 0px;
+}
+
+div{
+	background-color: lightpink;
+	line-height: 25px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	box-shadow: 5px 5px #777777;
+}
+
+b{
+	padding: 0px;
+}
+i{
+	visibility: hidden;
+}
+
+li{
+	padding: 0px;
+}
+
+ol{
+	border-width: 10px;
+	border-style: solid;
+	border-image: url("images/caution_border.png") 2.5% repeat;
+	margin: 30px;
+	padding: 30px;
+}
+
+div.min{
+	min-width: 100px;
+	min-height: 400px;
+}
+
+div.overflow{
+	min-height: 100px;
+	overflow: scroll;
+}
+
+p.example{
+	padding: 10px;
+	width: 300px;
+	text-align: center;
+	border: 5px solid navy;
+	margin: 10px auto 10px auto;
+
+}
+
+li.inline{
+	display: inline;
+}
+li.none{
+	display: none;
+}
+ul.rounded{
+	border: solid 5px navy;
+	border-radius: 20px;
+	padding: 30px;
+}
+li.Elliptical{
+	width: 80px;
+	padding: 20px;
+	text-align: center;
+	border: solid 5px navy;
+	border-radius: 20px 40px 20px 40px / 20px 40px 20px 40px;
+}
+li.circle{
+	width: 80px;
+	padding: 20px;
+	text-align: center;
+	border: solid 5px navy;
+	border-radius: 100%;
+}

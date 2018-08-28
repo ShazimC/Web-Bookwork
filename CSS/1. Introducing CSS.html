@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chapter 10: Introducing CSS</title>
+		<link rel="stylesheet" type="text/css" href="1. Introducing CSS.css">
+		<!-- link tag is used to link to an external style sheet, rel attribute stands for relationship; it specifies the relationship of the quoted document with the current document-->
+	</head>
+	<body>
+		<h1>This is Introduction to CSS</h1>
+		<p>This example uses two documents: the <i>HTML</i> file and a seperate <i>CSS</i> file.</p>
+		<h2>New terms:</h2>
+		<p>
+			<b>Link element: </b> Link tag is used to link to an external document (usually a stylesheet) <br>
+			<b>Rel attribute: stands for relationship and it specifies the relationship between the quoted document and the current document.</b> <br>
+			<b>Href attribute: specifies where the CSS file is located.</b>
+		</p>
+
+		<h2 id="selectors" >CSS selectors</h2>
+		<p>
+			<ul>
+				<li>CSS selectors: allow you to target rules to specific elements in an HTML document. Refer to page 238 to view the table of most commonly used CSS selectors.</li>
+				<li>CSS selectors are case sensitive, so they must match element names and attribute values exactly. Page 292 has more advanced selectors.</li>
+			</ul>
+		</p>
+
+		<h2>How CSS Rules Cascade</h2>
+		<p>
+			Some terms:
+			<ul>
+				<li>Last rule: the latter of the multiple identical selectors will take precedence.</li>
+				<li>Specifity: The more specific selector will take precedence over the general ones.</li>
+				<li>!important: You can add !important after any property value to indicate that it should be considered more important than other rules that apply to the same element.</li>
+			</ul>
+		</p>
+
+		<h2>Inheritance</h2>
+		<p>
+			<ul>
+				<li>Inherited: Specifying font-family for the parent specifies it for the children as well unless you further specify for the child.</li>
+				<li>not Inherited: background color or border properites. Specifying these for the parent will not specify them for the child.</li>
+				<li><b>NOTE:</b> You can force a lot of properties to inherit values from their parent elements by using <b>inherit</b> for the value of the properites.</li>
+			</ul>
+		</p>
+	</body>
+</html>
