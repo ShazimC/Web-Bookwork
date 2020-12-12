@@ -1,38 +1,50 @@
 // todo: A Robot
 const roads = [
-	"Alice's House-Bob's House",
-	"Alice's House-Cabin",
-	"Alice's House-Post Office",
-	"Bob's House-Town Hall",
-	"Daria's House-Ernie's House",
-	"Daria's House-Town Hall",
-	"Ernie's House-Grete's House",
-	"Grete's House-Farm",
-	"Grete's House-Shop",
-	"Marketplace-Farm",
-	"Marketplace-Post Office",
-	"Marketplace-Shop",
-	"Marketplace-Town Hall",
-	"Shop-Town Hall",
+  "Alice's House-Bob's House",
+  "Alice's House-Cabin",
+  "Alice's House-Post Office",
+  "Bob's House-Town Hall",
+  "Daria's House-Ernie's House",
+  "Daria's House-Town Hall",
+  "Ernie's House-Grete's House",
+  "Grete's House-Farm",
+  "Grete's House-Shop",
+  "Marketplace-Farm",
+  "Marketplace-Post Office",
+  "Marketplace-Shop",
+  "Marketplace-Town Hall",
+  "Shop-Town Hall",
 ];
 function buildGraphs(edges) {
-	let graph = Object.create(null);
-	function addEdge(from, to) {
-		if (graph[from] == null) {
-			graph[from] = [to];
-		} else {
-			graph[from].push(to);
-		}
-	}
-	for (let [from, to] of edges.map((r) => r.split("-"))) {
-        console.log("from: ", from);
-        console.log("to: ", to);
-		addEdge(from, to);
-		addEdge(to, from);
+  let graph = Object.create(null);
+  function addEdge(from, to) {
+    if (graph[from] == null) {
+      graph[from] = [to];
+    } else {
+      graph[from].push(to);
     }
-    console.log(graph);
-	return graph;
+  }
+  for (let [from, to] of edges.map((r) => r.split("-"))) {
+    console.log("from: ", from);
+    console.log("to: ", to);
+    addEdge(from, to);
+    addEdge(to, from);
+  }
+  console.log(graph);
+  return graph;
 }
 const roadGraph = buildGraphs(roads);
 
 // todo: The Task
+class VillageState {
+  constructor(currentLocation, parcels) {
+    this.location = currentLocation;
+    this.parcels = parcels;
+  }
+  move(destination) {
+    if (!roadGraph[this.currentLocation].includes(destination)) {
+      return this;
+    } else {
+    }
+  }
+}
