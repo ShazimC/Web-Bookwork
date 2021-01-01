@@ -45,6 +45,7 @@ class VillageState {
     if (!roadGraph[this.currentLocation].includes(destination)) {
       return this;
     } else {
+      // do something
     }
   }
 }
