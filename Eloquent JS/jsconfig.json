@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
-    "strict": true
-  },
+    "strict": true,
+    "target": "esnext"
+  }
 }
