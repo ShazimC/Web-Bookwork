@@ -87,8 +87,61 @@ let cartoonCrying = /boo+(hoo+)+/i;
 console.log(cartoonCrying.test("Boohoooohoohooo")); // -> true
 
 /* 
+    * Matches and Groups
+    - test method is the simplest way to test for a regexp
+    - exec method will return with an info object if a match is found
+    or else return null.
+*/
+
+let match = /\d+/.exec("one two 100");
+console.log(match.index, `, input: '${match.input}', match object: `, match);
+
+/* 
+    when the regexp contains subexps gruoped with parentheses,
+    the text that matched those groups will also show up in the array.
+*/
+
+let quotedText = /'([^']*)'/;
+console.log(quotedText.exec("she said 'hello'"));
+
+console.log(/bad(ly)?/.exec("bad"));
+console.log(/(\d)+/.exec("123"));
+
+/* 
+    * The Date Class
+    - class for date objects
+    - month follows index notation apparantly, where jan = 0.
+*/
+
+console.log(new Date());
+console.log(new Date(2009, 12 - 1, 9));
+
+function getDate(string) {
+  let [_, month, day, year] = /(\d{1,2})-(\d{1,2})-(\d{4})/.exec(string);
+  return new Date(year, month - 1, day);
+}
+console.log(getDate("1-30-2003"));
+
+/*
+ * Word and String Boundaries
+ */
+
+console.log(/cat/.test("concatenate"));
+// --> true
+console.log(/\bcat\b/.test("concatenate"));
+// --> false
+console.log(/\bcat\b/.test("con cat enate"));
+// --> true
+
+/* 
+    * Choice Patterns
+    - we want to know whether a string contains not only a number
+    - but a number followed by one of the words pig, cow, or chicken
+*/
+
+/* 
     * Regexp Golf
-    - is the prattice of writing the smallest possible reuglar expression 
+    - is the practice of writing the smallest possible reuglar expression 
         for a given pattern and ONLY that pattern.
     - write one out testing whether ONLY the given substrings occur in any
         input string: see list on pg 164.
