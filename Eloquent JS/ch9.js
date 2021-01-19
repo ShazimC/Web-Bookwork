@@ -146,7 +146,64 @@ console.log(/\bcat\b/.test("con cat enate"));
     - write one out testing whether ONLY the given substrings occur in any
         input string: see list on pg 164.
 */
+console.log("\n1. --------");
+const one = /ca(r|t)/;
+console.log(one.test("hahacabhaha"));
+console.log(one.test("hahacarhaha"));
+console.log(one.test("hahacathaha"));
 
+console.log("\n2. --------");
+const two = /pr?op/;
+console.log(two.test("hahaplophaha"));
+console.log(two.test("hahapophaha"));
+console.log(two.test("hahaprophaha"));
+
+console.log("\n3. --------");
+const three = /ferr(et|y|ari)/;
+console.log(three.test("hahaferrohaha"));
+console.log(three.test("hahaferrethaha"));
+console.log(three.test("hahaferryhaha"));
+console.log(three.test("hahaferrarihaha"));
+
+console.log("\n4. --------");
+const four = /\wious$/;
+console.log(four.test("should fail"));
+console.log(four.test("delicious"));
+console.log(four.test("very prec ious"));
+
+console.log("\n5. --------");
+const five = /\s[.,:;]/;
+console.log(five.test(" f"));
+console.log(five.test(" ."));
+console.log(five.test("\t;"));
+console.log(five.test("\n:"));
+
+console.log("\n6. --------");
+const six = /\w{7,}/;
+console.log(six.test("six"));
+console.log(six.test("weather"));
+console.log(six.test("very very sorry"));
+
+console.log("\n7. --------");
+const seven = /\b[^\We]+\b/i;
+verify(
+  seven,
+  ["red platypus", "wobbling nest"],
+  ["earth bed", "learning ape", "BEET"]
+);
+
+function verify(regexp, yes, no) {
+  // Ignore unfinished exercises
+  if (regexp.source == "...") return;
+  for (let str of yes)
+    if (!regexp.test(str)) {
+      console.log(`Failure to match '${str}'`);
+    }
+  for (let str of no)
+    if (regexp.test(str)) {
+      console.log(`Unexpected match for '${str}'`);
+    }
+}
 /* 
     * Quoting Style
     - you want to replace all the single quotes used for distinguishing
@@ -162,3 +219,13 @@ console.log(/\bcat\b/.test("con cat enate"));
         - the decimal dot, but the dot alone is invalid
         - exponent notation: 5e-3 or 1e10
 */
+
+// * Fireship 100 sec tutorial
+const exactWordMatch = /bob/;
+const global_regex = /bob/g; // will look for multiple matches in the text
+const wordORword = /Bob|Alice/; // will look for Bob or Alice in the text
+const grouping = /(Bob|Alice)Jones/; // will look for BobJones or AliceJones
+const zeroOr1 = /colou?r/; // will accept color or colour but not colouur
+const zeroOrMany = /booo*/; // will accept boo with 2 or more o's.
+const oneOrMany = /haha!+/; // will accept haha! with 1 or more !'s.
+const explicitCounts = /colou?r{2,6}/; // will accept colou?r with 2 to 6 r's.
