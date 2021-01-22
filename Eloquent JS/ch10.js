@@ -75,23 +75,34 @@ console.log(dayNames.length);
 /* 
   * Building and Bundlers
   - Fetching a single big file tends to be faster than fetching
-  a lot of tiny ones.
+      a lot of tiny ones.
   - Bundlers are tools that roll their programs (which they 
-    painstakingly split into modules) back into a single big file
-    before publishing it to the web.
+      painstakingly split into modules) back into a single big file
+      before publishing it to the web.
   - Minifiers are tools that take a JS program and make it
-    smaller by automatically removing comments & whitespace,
-    renaming bindings, and replacing pieces of code with
-    equivalent code that take up less space.
+      smaller by automatically removing comments & whitespace,
+      renaming bindings, and replacing pieces of code with
+      equivalent code that take up less space.
+*/
+
+/* 
+    * Module Design
+    - The best way to learn the value of well-structured design
+        is to read and work on a lot of programs and notice what
+        works and what doesn't.
 */
 
 /* 
   * A Modular Robot
   - which of the listed bindings listed should be modules
+  * randomRobot, buildGraph, runRobot, randomPick, findRoute
   - which module would depend on which module
+  * randomRobot would depend on randomPick, findRoute would depend on buildGraph
   - what whould their interfaces look like
   - which pieces can probably be found as an NPM package already
+  * Graphs can be found as npm package. JS has native random stuff.
   - would you prefer to use the npm package or write them yourself & why.
+  * Would prefer to write own if what I need is small and simple.
 */
 
 /* 
@@ -104,3 +115,13 @@ console.log(dayNames.length);
   - This function expects an array of two-element arrays (the start and 
   endpoints of the roads).
 */
+// * ./graph.js module
+{
+  export default buildGraph = (roads) => {
+    //...code
+  };
+}
+const buildGraph = require("./graph");
+const roads = [];
+const graph = buildGraph(roads);
+exports.roadGraph = graph;
