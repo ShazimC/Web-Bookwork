@@ -87,6 +87,12 @@ let cartoonCrying = /boo+(hoo+)+/i;
 console.log(cartoonCrying.test("Boohoooohoohooo")); // -> true
 
 /* 
+    * Matches and Groups
+    - test method is the absolute simplest way to test for a regexp
+    - 
+*/
+
+/* 
     * Regexp Golf
     - is the prattice of writing the smallest possible reuglar expression 
         for a given pattern and ONLY that pattern.
