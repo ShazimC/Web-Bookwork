@@ -156,62 +156,94 @@ requestType('gossip', (nest, message, source) => {
 	to another single node.
 */
 
-requestType("connections", (nest, {name, neighbors}, source) => {
-	let connections = nest.state.connections;
-	if(JSON.stringify(connections.get(name)) === JSON.stringify(neighbors))
-		return;
-	connections.set(name, neighbors);
-	broadcastConnections(nest, name, source);
+requestType('connections', (nest, { name, neighbors }, source) => {
+  let connections = nest.state.connections
+  if (JSON.stringify(connections.get(name)) === JSON.stringify(neighbors))
+    return
+  connections.set(name, neighbors)
+  broadcastConnections(nest, name, source)
 })
 
 function broadcastConnections(nest, name, exceptFor = null) {
-	for(let neighbor of nest.neighbors) {
-		if(neighbor === exceptFor) continue;
-		request(nest, neighbor, "connections", {
-			name,
-			neighbors: nest.state.connections.get(name)
-		});
-	}
+  for (let neighbor of nest.neighbors) {
+    if (neighbor === exceptFor) continue
+    request(nest, neighbor, 'connections', {
+      name,
+      neighbors: nest.state.connections.get(name),
+    })
+  }
 }
 
-everywhere(nest => {
-	nest.state.connections = new Map;
-	nest.state.connections.set(nest.name, nest.neighbors);
-	broadcastConnections(nest, nest.name);
+everywhere((nest) => {
+  nest.state.connections = new Map()
+  nest.state.connections.set(nest.name, nest.neighbors)
+  broadcastConnections(nest, nest.name)
 })
 
-function findRoute(from, to, connections){
-	let work = [{at: from, via: null}];
-	for(let i=0; i<work.length; i++){
-		let {at, via} = work[i];
-		for(let next of connections.get(at) || []){
-			if(next === to) return via;
-			if(!work.some(w => w.at === next)) {
-				work.push({at: next, via: via || next});
-			}
-		}
-	}
-	return null;
+function findRoute(from, to, connections) {
+  let work = [{ at: from, via: null }]
+  for (let i = 0; i < work.length; i++) {
+    let { at, via } = work[i]
+    for (let next of connections.get(at) || []) {
+      if (next === to) return via
+      if (!work.some((w) => w.at === next)) {
+        work.push({ at: next, via: via || next })
+      }
+    }
+  }
+  return null
 }
 
-function routeRequest(nest, target, type, content){
-	if(nest.neighbors.includes(target)){
-		return request(nest, target, type, content);
-	} else {
-		let via = findRoute(nest.name, target, nest.state.connections);
-		if(!via) throw new Error(`No route to ${target}`);
-		return  request(nest, via, "route", {target, type, content});
-	}
+function routeRequest(nest, target, type, content) {
+  if (nest.neighbors.includes(target)) {
+    return request(nest, target, type, content)
+  } else {
+    let via = findRoute(nest.name, target, nest.state.connections)
+    if (!via) throw new Error(`No route to ${target}`)
+    return request(nest, via, 'route', { target, type, content })
+  }
 }
 
-requestType("route", (nest, {target, type, content}) => {
-	return routeRequest(nest, target, type, content);
+requestType('route', (nest, { target, type, content }) => {
+  return routeRequest(nest, target, type, content)
 })
 
 /* 
 	* Async Functions
-	- 
+	- async function will always return a promise.
+  - as soon as the body returns something, that promise is resolved
+  - if it throws an exception, the promise is rejected.
+  - 
 */
 
-requestType("storage", (nest, name) => storage(nest, name));
-function findInStorage(nest, name)
+async function example(something) {
+  if (something === 'correct') return true
+  else throw new Error('Not correct')
+}
+
+async function useExample() {
+  let resolved = await example('current')
+  // if exception occurs, code stops right here and throws it.
+  console.log(resolved) // will log true
+}
+useExample()
+example(null).catch((err) => console.error(err)) // will log 'Not correct' error
+
+/*
+  * Generators
+  - function* => generator
+  - returns an iterator
+*/
+
+function* powers(n) {
+  for (let current = n; ; current *= n) {
+    yield current
+  }
+}
+for(let power of powers(3)){
+  if(power > 50) break;
+  console.log(power);
+}
+// -> 3
+// -> 9
+// -> 27
