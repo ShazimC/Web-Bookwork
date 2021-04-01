@@ -240,10 +240,199 @@ function* powers(n) {
     yield current
   }
 }
-for(let power of powers(3)){
-  if(power > 50) break;
-  console.log(power);
+let generator = powers(5)
+console.log(generator.next())
+console.log(generator.next())
+console.log(generator.next())
+/* 
+  - generators automatically save their local state every time they yield.
+  at the point that they yield the value.
+  - you can only yield inside the generator scope
+  e.g gen(){ fun(){ yield ..; }} will not work.
+*/
+for (let power of powers(3)) {
+  // for-of loops over iterables
+  if (power > 50) break
+  console.log(power)
+}
+const obj = { name: 'shazim', age: 23 }
+for (let prop in obj) {
+  // for-in is used for objects.
+  console.log(prop + ':', obj[prop])
 }
 // -> 3
 // -> 9
 // -> 27
+
+/* 
+  * The Event Loop
+  - No matter how closely together events -- such as timeouts or
+  incoming requests -- happen, a JavaScript environment will run
+  only one program at a time.
+  * --> You can think of this as it running a big loop around your
+  * program, called the event loop.
+  - when there's nothing to be done, that loop is stopped. But as
+  events come in, they are added to a queue, and their code is
+  executed one after the other. Because no two things run at
+  the same time, slow-running code might delay the handling of other
+  events.
+*/
+
+try {
+  setTimeout(() => {
+    throw new Error('Woosh')
+  }, 20)
+} catch (_) {
+  // This will not run
+  console.log('Caught!')
+}
+
+/* 
+  - async behavior happens on its own empty function call stack
+  - this is one of the reasons that, without promises, managing 
+  exceptions across async code is hard.
+    - This is because each callback starts with a mostly empty
+    stack, your catch handlers won't be on the stack when they throw
+    an exception.
+*/
+
+// this example sets a timeout but then waits until the timeout's
+// intended point of time, causing the timeout be late.
+let start = Date.now()
+setTimeout(() => {
+  console.log('Timeout ran at', Date.now() - start)
+}, 20)
+while (Date.now() < start + 50) {
+  //nothing
+}
+console.log('Wasted time until', Date.now() - start)
+// --> Wasted time until 50
+// --> Timeout ran at 55
+
+// * Promises always resolve or reject as a new event.
+Promise.resolve('DONE').then(console.log)
+// --> Me first!
+// --> DONE
+/* 
+  Even if a promise is already resolved, waiting for it
+  will cause your callback to run after the current script finishes
+  rather than right away 
+*/
+
+/*
+ * Asynchronous Bugs
+ */
+
+// synch code doesn't have gaps where async code CAN, e.g:
+function storage(nest, name) {
+  return new Promise((resolve) => {
+    nest.readStorage(name, (result) => resolve(result))
+  })
+}
+
+function anyStorage(nest, source, name) {
+  if (source === nest.name) return storage(nest, name)
+  else return routeRequest(nest, source, 'storage', name)
+}
+
+async function chicks(nest, year) {
+  let list = ''
+  await Promise.all(
+    network(nest).map(async (name) => {
+      list += `${name}: ${await anyStorage(nest, name, `chicks in ${year}`)}\n`
+    }),
+  )
+  return list
+}
+/* 
+  each of the map iteration starts with the list = ''
+  which means that when the await statements finish they're all going to
+  add onto list equaling empty '', resulting in one giant line.
+*/
+
+async function chicks2(nest, year) {
+  let lines = network(nest).map(async (name) => {
+    return name + ': ' + (await anyStorage(nest, name, `chicks in ${year}`))
+  }) // is now an array
+  return (await Promise.all(lines)).join('\n')
+  // and can be returned as string list by calling join('\n') on the array.
+}
+
+/* 
+  we solve that issue by turning the lines variable into an array
+  instead of a string and then using join to make the array into
+  a line by line string.
+*/
+
+/* 
+  * Summary
+  Asynchronous programming helps optimize code workflow when the code doesn't
+  have to wait for a task to finish or a response to come through before moving
+  onto the next line of code.
+
+  However, async programming needs to be done in a way such that proceeding
+  past the async task does not break the program. E.g if response of request is
+  necessary for code to run correctly in the next line.
+
+  Main way to program asynchronously in JS is by using Promises, callbacks, and
+  async/await.
+*/
+
+// * Exercises
+
+/* 
+  ? Tracking the Scalpel
+*/
+async function locateScalpel(nest) {}
+
+/* 
+  ? Building Promise.all
+  - Given an array of promises, Promise.all returns a promise that
+  waits for all of the promises in the array to finish.
+  - If all of the promises succeed, it yields an array of the result values,
+  if any single promise fails, Promise.all returns a failed promise with
+  the failure reason from the first failing promise?
+*/
+
+async function fakeRequest(failReason, waitFor) {
+  let timeMessage = `, took ${waitFor} secs`
+  let output = ''
+  if (!failReason) output = 'Success!' + timeMessage
+  else output = 'Promise failed, reason: ' + failReason + timeMessage
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (failReason) reject(output)
+      else resolve(output)
+    }, waitFor)
+  })
+}
+
+let requests = []
+for (let i = 0; i < 10; i++) {
+  let randomSeconds = Math.ceil(Math.random() * 10)
+  let reason = randomSeconds % 2 === 0 ? 'hehexd' : null
+  requests.push(fakeRequest(reason, randomSeconds))
+}
+Promise.all(
+  requests.map((req) =>
+    req.catch((err) => {
+      return err
+    }),
+  ),
+).then(console.log)
+
+function Promise_all(promises) {
+  return new Promise((resolve, reject) => {
+    let successes = [], successCount = 0;
+    if(promises.length === 0) resolve(successes);
+    for (let i = 0; i < promises.length; i++) {
+      promises[i].then(val => {
+        successes[i] = val;
+        successCount++;
+        if(successCount === promises.length) 
+          resolve(successes);
+      }).catch(reject);
+    }
+  })
+}
+Promise_all(requests).then(console.log).catch(console.error)
