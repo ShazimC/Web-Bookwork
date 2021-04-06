@@ -2,5 +2,5 @@
 
 /*
     * Networks and the Internet
-    - 
+    - The internet
 */
