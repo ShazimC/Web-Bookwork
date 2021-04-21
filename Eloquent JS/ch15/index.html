@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>Click this document to activate handler.</p>
+  <script>
+    // window.addEventListener("click", () => {
+    //   console.log("You knocked?");
+    // });
+  </script>
+  <button>Click me</button>
+  <p>No Handler here.</p>
+  <script>
+    let button = document.querySelector("button");
+    button.addEventListener("click", () => {
+      console.log("Button clicked");
+    })
+  </script>
+  <button class="button2">Act-once button</button>
+  <script>
+    let button2 = document.querySelector('.button2');
+    function once(){
+      console.log('Done.');
+      button.removeEventListener("click", once);
+    }
+    button2.addEventListener('click', once);
+  </script>
+  <br><br>
+  <button class="b3">Click me any way you want.</button>
+  <script>
+    let button3 = document.querySelector('.b3');
+    button3.addEventListener("mousedown", event => {
+      switch (event.button) {
+        case 0:
+          console.log('Left Button');
+          break;
+        case 1:
+          console.log('Middle Button');
+          break;
+        case 2:
+          console.log('Right Button');
+          break;
+        default:
+          break;
+      }
+    })
+  </script>
+  <p class="p">A paragraph with a <button class="button4">button</button>.</p>
+  <script>
+    let para = document.querySelector('.p');
+    let button4 = document.querySelector('.button4');
+    para.addEventListener("mousedown", event => {
+      console.log("Handler for paragraph.");
+    })
+    button4.addEventListener("mousedown", event => {
+      console.log("Handler for button");
+      if(event.button === 0) event.stopPropagation();
+    });
+  </script>
+  <button class="A">A</button>
+  <button class="B">B</button>
+  <button class="C">C</button>
+  <script>
+    document.body.addEventListener("click", event => {
+      if(event.target.nodeName === "BUTTON"){
+        console.log("Clicked", event.target.textContent);
+      }
+    })
+  </script>
+</body>
+</html>
