@@ -121,28 +121,120 @@
       // });
     </script>
     <p>Drag the bar to change its width.</p>
-    <div style="background: orange; width: 60px; height: 20px"></div>
+    <div style="background: orange; width: 60px; height: 20px;"></div>
     <script>
-      let lastX;
-      let bar = document.querySelector('div');
-      bar.addEventListener('mousedown', event => {
-        if(event.button == 0) {
-          lastX = event.clientX;
-          window.addEventListener('mousemove', moved);
-          event.preventDefault(); //Prevent selection
+      let lastX
+      let bar = document.querySelector('div')
+      bar.addEventListener('mousedown', (event) => {
+        if (event.button == 0) {
+          lastX = event.clientX
+          window.addEventListener('mousemove', moved)
+          event.preventDefault() //Prevent selection
         }
       })
 
-      function moved(event){
-        if(event.buttons == 0) {
-          window.removeEventListener('mousemove', moved);
+      function moved(event) {
+        if (event.buttons == 0) {
+          window.removeEventListener('mousemove', moved)
         } else {
-          let dist = event.clientX - lastX;
-          let newWidth = Math.max(10, bar.offsetWidth + dist);
-          bar.style.width = newWidth + "px";
-          lastX = event.clientX;
+          let dist = event.clientX - lastX
+          let newWidth = Math.max(10, bar.offsetWidth + dist)
+          bar.style.width = newWidth + 'px'
+          lastX = event.clientX
         }
       }
     </script>
+    <style>
+      #progress {
+        border-bottom: 2px solid blue;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+    </style>
+    <div id="progress"></div>
+    <script>
+      // Create some content
+      document.body.appendChild(
+        document.createTextNode(
+          'supercalifragilisticexpialidocious'.repeat(1000),
+        ),
+      )
+      let bar2 = document.querySelector('#progress')
+      window.addEventListener('scroll', () => {
+        let max = document.body.scrollWidth - innerWidth
+        bar2.style.width = `${(pageXOffset / max) * 100}%`
+      })
+    </script>
+    <p>
+      Name:
+      <input type="text" data-help="Your full name" />
+    </p>
+    <p>
+      Age:
+      <input type="text" data-help="Age in years" />
+    </p>
+    <p id="help"></p>
+    <script>
+      let help = document.querySelector('#help')
+      let fields = document.querySelectorAll('input')
+      for (let field of Array.from(fields)) {
+        field.addEventListener('focus', (event) => {
+          let text = event.target.getAttribute('data-help')
+          help.textContent = text
+        })
+        field.addEventListener('blur', (event) => {
+          help.textContent = ''
+        })
+      }
+    </script>
+    <script src="./ch15.js"></script>
+    <textarea name="debouncing" id="" cols="30" rows="10">
+      Type something here...
+    </textarea>
+    <script>
+      let textarea = document.querySelector('textarea')
+      let timeout
+      textarea.addEventListener('input', () => {
+        clearTimeout(timeout)
+        timeout = setTimeout(() => console.log('Typed!'), 500)
+      })
+    </script>
+    <script>
+      // let scheduled = null
+      // window.addEventListener('mousemove', (event) => {
+      //   if (!scheduled) {
+      //     setTimeout(() => {
+      //       document.body.textContent = `Mouse at ${scheduled.pageX}, ${scheduled.pageY}`
+      //       scheduled = null
+      //     }, 250)
+      //   }
+      //   scheduled = event
+      // })
+    </script>
+    <p class="balloon">🎈</p>
+    <script>
+      let emoji = document.querySelector('.balloon');
+      function setFontSize(newSize) {
+        currentFontSize = newSize;
+        emoji.style.fontSize = currentFontSize + 'px';
+      }
+      setFontSize(20)
+      function keyDownHandler(event) {
+        event.preventDefault();
+        if(event.key === "ArrowUp"){
+          setFontSize(currentFontSize * 1.1)
+          if(currentFontSize > 80){
+            emoji.textContent = '💥';
+            window.removeEventListener("keydown", keyDownHandler)
+          }
+        }else if(event.key === "ArrowDown"){
+          setFontSize(currentFontSize * 0.9)
+        }
+      }
+      window.addEventListener("keydown", keyDownHandler)
+    </script>
+    
   </body>
 </html>
